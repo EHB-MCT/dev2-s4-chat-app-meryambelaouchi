@@ -3,14 +3,22 @@
 const chat = {
     author: "yourName",
     init() {
+        this.fetchMessages();
     },
-    sendMessage() {
-    },
+    sendMessage() {},
     fetchMessages() {
-    },
-    renderMessage(message) {
-    }
+        fetch('https://dev2chat.onrender.com/messages')
+            .then(function (response) {
+                return response.json();
+            })
+            .then(function (message) {
+                console.log(message);
 
-}
+            });
+
+    },
+    renderMessage(message) {}
+
+};
 
 chat.init();
